@@ -5,15 +5,20 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+
+	"github.com/jms-guy/deepdark/cmd/server/internal/logger"
 )
 
-type apiServer struct{}
-
-func NewServer() *apiServer {
-	return &apiServer{}
+type AppServer struct {
+	Logger logger.Logger
 }
 
-func (app *apiServer) Run() {
+func NewServer() *AppServer {
+	return &AppServer{}
+}
+
+// Main server setup and run function
+func (app *AppServer) Run() {
 	mux := http.NewServeMux()
 	server := http.Server{
 		Handler: mux,

@@ -1,6 +1,6 @@
 package main
 
 func main() {
-	apiServer := NewServer()
-	apiServer.Run()
+	appServer := NewServer()
+	appServer.Run()
 }
